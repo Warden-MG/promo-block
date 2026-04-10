@@ -1,0 +1,11 @@
+@use './common/reset';
+@use './common/variables' as *;
+@use './common/mixins' as *;
+@use './common/global';
+
+@use './blocks/header';
+@use './blocks/banner';
+@use './blocks/slogan';
+@use './blocks/courses';
+@use './blocks/burger';
+@use './blocks/button';

@@ -1,0 +1,9 @@
+@use '../common/variables' as *;
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: $color-main;
+  color: $color-white;
+  text-decoration: none;
+}

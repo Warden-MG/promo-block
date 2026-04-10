@@ -1,0 +1,26 @@
+@use '../common/variables' as *;
+@use '../common/mixins' as *;
+
+.header {
+  background: $color-white;
+
+  &__container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 20px;
+
+    &--active {
+      display: block;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

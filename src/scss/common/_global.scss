@@ -1,0 +1,14 @@
+@use './variables' as *;
+
+body {
+  font-family: Arial, sans-serif;
+  color: $color-dark;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}

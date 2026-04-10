@@ -1,0 +1,17 @@
+@use '../common/variables' as *;
+@use '../common/mixins' as *;
+
+.burger {
+  display: none;
+
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: $color-dark;
+  }
+
+  @include mobile {
+    display: block;
+  }
+}
