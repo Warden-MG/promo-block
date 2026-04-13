@@ -1,14 +1,38 @@
-@use './variables' as *;
-
 body {
-  font-family: Arial, sans-serif;
-  color: $color-dark;
+  @include fluid-text(22, 18);
+
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.28;
+  color: var(--color-white);
+  background-color: var(--color-dark);
 }
 
-img {
-  max-width: 100%;
+a,
+button,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
 }
 
-button {
-  cursor: pointer;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+h1 {
+  @include fluid-text(50, 30);
+}
+
+h2 {
+  @include fluid-text(40, 22);
+}
+
+h3 {
+  @include fluid-text(26, 24);
 }

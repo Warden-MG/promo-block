@@ -10,16 +10,41 @@
 
 <header class="header">
   <div class="header__container">
-    <a href="#" class="header__logo">Logo</a>
+    <a href="#" class="header__logo logo">
+      <img src="/src/assets/images/logo.svg" alt="Логотип" class="logo__image">
+    </a>
 
-    <button class="header__burger burger" type="button">
-      <span></span>
-    </button>
+    <nav class="header__nav nav">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="#" class="nav__link">About us</a>
+        </li>
 
-    <nav class="header__menu">
-      <a href="#" class="header__link">Главная</a>
-      <a href="#" class="header__link">Курсы</a>
+        <li class="nav__item">
+          <a href="#" class="nav__link nav__link--active">Courses</a>
+        </li>
+
+        <li class="nav__item">
+          <a href="#" class="nav__link">Certificate</a>
+        </li>
+
+        <li class="nav__item">
+          <a href="#" class="nav__link">News</a>
+        </li>
+
+        <li class="nav__item">
+          <a href="#" class="nav__link">Contact us</a>
+        </li>
+      </ul>
     </nav>
+
+    <a href="#" class="header__button call-button">Call us</a>
+
+    <button class="header__burger burger" type="button" aria-label="Открыть меню">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
   </div>
 </header>
 
@@ -28,7 +53,7 @@
     <div class="banner__container">
       <h1 class="banner__title">Заголовок</h1>
       <p class="banner__text">Описание блока</p>
-      <a href="#" class="banner__button button">Подробнее</a>
+      <a href="#" class="banner__button banner__button--styled">Подробнее</a>
     </div>
   </section>
 
