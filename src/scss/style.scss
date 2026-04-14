@@ -1,14 +1,14 @@
-@import './common/normalize',
-    './common/variables',
-    './common/mixins',
-    './common/global',
-    './common/fonts',
-    './common/media',
-    './common/utils',
+@use './common/normalize';
+@use './common/variables';
+@use './common/mixins';
+@use './common/global';
+@use './common/fonts';
+@use './common/media';
+@use './common/utils';
 
-    './blocks/header',
-    './blocks/banner',
-    './blocks/slogan',
-    './blocks/courses',
-    './blocks/burger',
-    './blocks/button'
+@use './blocks/header';
+@use './blocks/banner';
+@use './blocks/slogan';
+@use './blocks/courses';
+@use './blocks/burger';
+@use './blocks/button';
