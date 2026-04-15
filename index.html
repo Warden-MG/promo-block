@@ -4,80 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test Project</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" />
 </head>
 <body>
-
-<header class="header">
-  <div class="header__container">
-    <a href="#" class="header__logo logo">
-      <img src="/src/assets/images/logo.svg" alt="Логотип" class="logo__image">
+<header class="header menu-container">
+  <div class="header__inner">
+    <a class="header__logo logo" href="#">
+      <img class="logo__image" src="/src/assets/images/logo.svg" alt="Логотип" loading="lazy"/>
     </a>
 
-    <nav class="header__nav nav">
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="#" class="nav__link">About us</a>
-        </li>
-
-        <li class="nav__item">
-          <a href="#" class="nav__link nav__link--active">Courses</a>
-        </li>
-
-        <li class="nav__item">
-          <a href="#" class="nav__link">Certificate</a>
-        </li>
-
-        <li class="nav__item">
-          <a href="#" class="nav__link">News</a>
-        </li>
-
-        <li class="nav__item">
-          <a href="#" class="nav__link">Contact us</a>
-        </li>
+    <nav class="header__menu hidden-mobile">
+      <ul class="header__menu-list">
+        <li class="header__menu-item"><a class="header__menu-link" href="#">About us</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="#">Courses</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="#">Certificate</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="#">News</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="#">Contact us</a></li>
       </ul>
     </nav>
 
-    <a href="#" class="header__button call-button">Call us</a>
+    <a class="header__button button button--blue hidden-mobile" href="#" type="button">Call us</a>
 
-    <button class="header__burger burger" type="button" aria-label="Открыть меню">
-      <span class="burger__line"></span>
-      <span class="burger__line"></span>
-      <span class="burger__line"></span>
+    <button class="header__burger-button burger-button visible-mobile" id="burgerButton" type="button" aria-label="Открыть меню">
+      <span class="visually-hidden">Open navigation menu</span>
     </button>
   </div>
 </header>
 
-<main>
-  <section class="banner">
-    <div class="banner__container">
-      <h1 class="banner__title">Заголовок</h1>
-      <p class="banner__text">Описание блока</p>
-      <a href="#" class="banner__button banner__button--styled">Подробнее</a>
+<main></main>
+<div class="slogan"></div>
+
+
+<nav class="mobile-overlay visible-mobile" id="mobileOverlay">
+  <div class="mobile-overlay__menu">
+    <ul class="mobile-overlay__list">
+      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="/">About us</a></li>
+      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="/">Services</a></li>
+      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="/">Use Cases</a></li>
+      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="/">Pricing</a></li>
+      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="/">Blog</a></li>
+    </ul>
+
+    <div class="mobile-overlay__social">
+      <a class="mobile-overlay__logo " href="#">
+        <img class="logo__image" src="/src/assets/images/facebook-icon.svg" alt="Facebook" loading="lazy"/>
+      </a>
+      <a class="mobile-overlay__logo" href="#">
+        <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
+      </a>
+      <a class="mobile-overlay__logo" href="#">
+        <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
+      </a>
     </div>
-  </section>
 
-  <section class="slogan">
-    <div class="slogan__container">
-      <h2 class="slogan__title">Наши преимущества</h2>
+    <div class="mobile-overlay__policy">
+      <a class="mobile-overlay__policy-link" href="#">Политика конфиденциальности</a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <section class="courses">
-    <div class="courses__container">
-      <h2 class="courses__title">Курсы</h2>
-
-      <div class="courses__slider swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Курс 1</div>
-          <div class="swiper-slide">Курс 2</div>
-          <div class="swiper-slide">Курс 3</div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
+<script type="module" src="/src/js/menu.js"></script>
 <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

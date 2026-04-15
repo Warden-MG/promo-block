@@ -6,9 +6,10 @@
 @use './common/media';
 @use './common/utils';
 
+@use './blocks/menu-overlay';
+@use './blocks/button';
 @use './blocks/header';
 @use './blocks/banner';
 @use './blocks/slogan';
 @use './blocks/courses';
 @use './blocks/burger';
-@use './blocks/button';
