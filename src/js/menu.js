@@ -28,3 +28,9 @@ document.querySelectorAll('.mobile-overlay__link').forEach(link => {
     closeOverlay();
   });
 });
+
+document.querySelectorAll('.mobile-overlay__policy').forEach(link => {
+  link.addEventListener('click', () => {
+    closeOverlay();
+  });
+});
