@@ -56,6 +56,7 @@
     }
 
     &-link {
+
       position: relative;
       display: inline-flex;
       align-items: center;
@@ -72,6 +73,9 @@
           @include desktop {
             width: 113px;
           }
+
+
+
         }
       }
 
@@ -84,9 +88,11 @@
         height: 0;
         width: 0;
         background-image: var(--gradient-pink);
-        transition-duration: var(--transition-duration-hover);
+        transition-duration: inherit;
         border-radius: var(--border-radius);
         z-index: -1;
+
+
       }
       &:active::after {
         width: 184px;
@@ -106,11 +112,18 @@
         height: 0;
         width: 0;
         background-color: var(--color-dark-blue);
-        transition-duration: var(--transition-duration-active);
         border-radius: var(--border-radius);
         z-index: -1;
       }
 
+    }
+  }
+  &__button {
+    height: var(--button-small-height);
+    width: 161px;
+
+    @include desktop {
+      width: 120px;
     }
   }
 

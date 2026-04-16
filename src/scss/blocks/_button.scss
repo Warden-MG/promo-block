@@ -5,19 +5,17 @@
 .button {
   @include flex-center(true);
 
-  height: var(--button-small-height);
-  padding-inline: 54px;
-  background-image: var(--gradient-blue);
-  border-radius: var(--border-radius-small);
 
-  @include desktop {
-    padding-inline: 30px;
-  }
+  background-image: var(--gradient-blue);
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  border: none;
+
+
 
   @include hover {
     background-image: var(--gradient-pink);
     background-color: var(--color-dark-blue);
-    transition-duration: inherit;
 
     &:active {
       background-image: none;
@@ -27,6 +25,16 @@
 
   &--white {
     color: var(--color-dark-blue);
-    background-color: var(--color-white);
+    background-image: none;
+
+    @include hover {
+      color: var(--color-white);
+      background-color: var(--color-light-blue);
+      background-image: none;
+
+      &:active {
+        background-color: var(--color-dark-blue);
+      }
+    }
   }
 }

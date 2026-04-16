@@ -1,4 +1,5 @@
 @use "./mixins" as *;
+@use "./media" as *;
 body {
   @include fluid-text(22, 18);
 
@@ -9,17 +10,31 @@ body {
   color: var(--color-white);
   background-color: var(--color-dark);
 }
+main {
+  padding-top: 170px;
+
+  @include desktop {
+    padding-top: 145px;
+  }
+  @include mobile {
+    padding-top: 114px;
+  }
+}
 
 a,
 button,
 textarea,
 svg * {
-  transition-duration: var(--transition-duration);
+  transition-duration: var(--transition-duration-hover);
+  color: inherit;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+
+}
+li {
+  font-weight: 300;
 }
 
 h1, h2, h3 {
@@ -28,6 +43,10 @@ h1, h2, h3 {
 
 h1 {
   @include fluid-text(50, 30);
+  @include mobile {
+    font-weight: 400;
+  }
+
 }
 
 h2 {
@@ -36,4 +55,9 @@ h2 {
 
 h3 {
   @include fluid-text(26, 24);
+}
+
+p {
+  @include fluid-text(22, 18);
+  font-weight: 400;
 }

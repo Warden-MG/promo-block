@@ -5,28 +5,33 @@
     --color-dark-gray: #494949;
     --color-light-gray: #E3E3E3;
     --color-dark-blue: #1051D2;
+    --color-light-blue: #67A6FB;
 
     --gradient-blue: linear-gradient(90deg, #67A6FB 0%, #3b10d8 100%);
     --gradient-pink: linear-gradient(90deg, #67A6FB 0%, #FFA2F4 100%);
 
     --border: 1px solid var(--color-white);
     --border-radius: 43px;
-    --border-radius-small: 21px;
 
     --shadow: -9px 1px 30px 0 var(--color-white);
 
     --font-family-base: 'Montserrat', sans-serif;
 
-    --container-padding-x: 20px;
+
     --container-width: 1415px;
+    --container-padding-x: 22px;
     --menu-container-width: 1524px;
+    --menu-container-padding-x: 20px;
 
 
     --section-padding-y: 45px;
+    --mobile-section-padding-y: 30px;
 
     --button-small-height: 43px;
+    --button-medium-height: 45px;
     --button-large-height: 63px;
 
+    --transition-duration: 0.2s;
     --transition-duration-hover: 0.2s;
     --transition-duration-active: 0.05s;
 }

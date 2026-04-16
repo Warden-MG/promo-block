@@ -7,63 +7,125 @@
   <link rel="icon" type="image/svg+xml" />
 </head>
 <body>
-<header class="header menu-container">
-  <div class="header__inner">
-    <a class="header__logo logo" href="#">
-      <img class="logo__image" src="/src/assets/images/logo.svg" alt="Логотип" loading="lazy"/>
-    </a>
+  <header class="header menu-container">
+    <div class="header__inner">
+      <a class="header__logo logo" href="#">
+        <img class="logo__image" src="/src/assets/images/logo.svg" alt="Логотип" loading="lazy"/>
+      </a>
 
-    <nav class="header__menu hidden-mobile">
-      <ul class="header__menu-list">
-        <li class="header__menu-item"><a class="header__menu-link" href="#">About us</a></li>
-        <li class="header__menu-item"><a class="header__menu-link" href="#">Courses</a></li>
-        <li class="header__menu-item"><a class="header__menu-link" href="#">Certificate</a></li>
-        <li class="header__menu-item"><a class="header__menu-link" href="#">News</a></li>
-        <li class="header__menu-item"><a class="header__menu-link" href="#">Contact us</a></li>
+      <nav class="header__menu hidden-mobile">
+        <ul class="header__menu-list">
+          <li class="header__menu-item"><a class="header__menu-link" href="#">About us</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">Courses</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">Certificate</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">News</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">Contact us</a></li>
+        </ul>
+      </nav>
+
+      <a class="header__button button button--blue hidden-mobile" href="#" type="button">Call us</a>
+
+      <button class="header__burger-button burger-button visible-mobile" id="burgerButton" type="button" aria-label="Открыть меню">
+        <span class="visually-hidden">Open navigation menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content container">
+    <section class="section">
+      <div class="section__body">
+        <div class="hero">
+          <div class="hero__main">
+            <div class="hero__body">
+
+              <h1 class="hero__title">
+                Start Your Career in IT Today
+              </h1>
+
+              <div class="hero__description">
+                <p>To make high-quality IT education accessible, helping people gain practical skills, grow professionally, and build successful careers in the technology industry.</p>
+              </div>
+
+              <div class="hero__button-container">
+                <button
+                        class="hero__button button"
+                        type="button"
+                >
+                  About more
+                </button>
+                <button
+                        class="hero__button button button--white"
+                        type="button"
+                >
+                  Choose a Course
+                </button>
+              </div>
+
+            </div>
+
+            <img
+                    class="hero__image"
+                    src="/src/assets/images/slogan-image.png"
+                    alt=""
+                    loading="lazy"
+            />
+          </div>
+
+          <div class="hero__mission">
+
+            <h2 class="hero__mission-title">
+              A team of experts — <br>
+              you can trust with your IT education
+
+            </h2>
+
+            <p class="hero__mission-subtitle">
+              Our Mission
+            </p>
+
+            <p class="hero__mission-description">
+              To make high-quality IT education accessible, helping people gain practical skills, grow professionally, and build successful careers in the technology industry.
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+  </main>
+
+
+
+  <nav class="mobile-overlay visible-mobile" id="mobileOverlay">
+    <div class="mobile-overlay__menu">
+      <ul class="mobile-overlay__list">
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">About us</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Services</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Use Cases</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Pricing</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Blog</a></li>
       </ul>
-    </nav>
 
-    <a class="header__button button button--blue hidden-mobile" href="#" type="button">Call us</a>
+      <div class="mobile-overlay__social">
+        <a class="mobile-overlay__logo " href="#">
+          <img class="logo__image" src="/src/assets/images/facebook-icon.svg" alt="Facebook" loading="lazy"/>
+        </a>
+        <a class="mobile-overlay__logo" href="#">
+          <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
+        </a>
+        <a class="mobile-overlay__logo" href="#">
+          <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
+        </a>
+      </div>
 
-    <button class="header__burger-button burger-button visible-mobile" id="burgerButton" type="button" aria-label="Открыть меню">
-      <span class="visually-hidden">Open navigation menu</span>
-    </button>
-  </div>
-</header>
-
-<main></main>
-<div class="slogan"></div>
-
-
-<nav class="mobile-overlay visible-mobile" id="mobileOverlay">
-  <div class="mobile-overlay__menu">
-    <ul class="mobile-overlay__list">
-      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">About us</a></li>
-      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Services</a></li>
-      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Use Cases</a></li>
-      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Pricing</a></li>
-      <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Blog</a></li>
-    </ul>
-
-    <div class="mobile-overlay__social">
-      <a class="mobile-overlay__logo " href="#">
-        <img class="logo__image" src="/src/assets/images/facebook-icon.svg" alt="Facebook" loading="lazy"/>
-      </a>
-      <a class="mobile-overlay__logo" href="#">
-        <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
-      </a>
-      <a class="mobile-overlay__logo" href="#">
-        <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
-      </a>
+      <div class="mobile-overlay__policy">
+        <a class="mobile-overlay__policy-link" href="#">Политика конфиденциальности</a>
+      </div>
     </div>
+  </nav>
 
-    <div class="mobile-overlay__policy">
-      <a class="mobile-overlay__policy-link" href="#">Политика конфиденциальности</a>
-    </div>
-  </div>
-</nav>
-
-<script type="module" src="/src/js/menu.js"></script>
-<script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/menu.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
