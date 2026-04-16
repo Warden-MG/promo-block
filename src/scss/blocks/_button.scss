@@ -1,25 +1,32 @@
 @use '../common/variables' as *;
+@use '../common/mixins' as *;
+@use '../common/media' as *;
 
-.call-button {
-  min-width: 162px;
-  min-height: 44px;
-  padding: 12px 24px;
+.button {
+  @include flex-center(true);
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  height: var(--button-small-height);
+  padding-inline: 54px;
+  background-image: var(--gradient-blue);
+  border-radius: var(--border-radius-small);
 
-  border-radius: 999px;
-  text-decoration: none;
+  @include desktop {
+    padding-inline: 30px;
+  }
 
-  font-size: 18px;
-  line-height: 1;
-  color: #ffffff;
+  @include hover {
+    background-image: var(--gradient-pink);
+    background-color: var(--color-dark-blue);
+    transition-duration: inherit;
 
-  background: linear-gradient(90deg, #6fa8ff 0%, #3610d9 100%);
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
+    &:active {
+      background-image: none;
 
-.call-button:hover {
-  transform: translateY(-1px);
+    }
+  }
+
+  &--white {
+    color: var(--color-dark-blue);
+    background-color: var(--color-white);
+  }
 }

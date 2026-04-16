@@ -1,41 +1,120 @@
 @use '../common/variables' as *;
 @use '../common/mixins' as *;
+@use '../common/media' as *;
 
 .header {
-  padding: 32px 0;
-  background-color: #1d1d1d;
 
-  &__container {
-    max-width: 1524px;
-    margin: 0 auto;
-    padding: 0 24px 0 0;
-    max-height: 80px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  z-index: 1100;          // ← хедер выше оверлея
+  padding-top: 33px;
 
+  font-size: 16px;
+  white-space: nowrap;
+
+  @include mobile {
+    padding-top: 15px;
+  }
+
+  &__inner {
+    transition-duration: var(--transition-duration);
+    padding-right: 29px;
     display: flex;
     align-items: center;
-    gap: 28px;
+    justify-content: space-between;
+    height: 80px;
+
+    @include mobile {
+      height: 50px;
+    }
 
     border: 1px solid #fff;
-    border-radius: 999px;
-    background-color: #1d1d1d;
+    border-radius: var(--border-radius);
+    background-color: var(--color-dark);
   }
 
-  &__logo {
-    flex-shrink: 0;
+
+  &__menu {
+    margin-right: auto;
+    padding-left: 148px;
+
+    @include desktop {
+      padding-left: 30px;
+
+    }
+
+    &-list {
+      display: flex;
+      column-gap: 71px;
+
+      @include desktop {
+        column-gap: 35px;
+      }
+      align-items: center;
+    }
+
+    &-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+
+      border: var(--border-radius);
+
+      z-index: 0;
+
+      @include hover {
+        &::before {
+          height: 78px;
+          width: 184px;
+
+          @include desktop {
+            width: 113px;
+          }
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        height: 0;
+        width: 0;
+        background-image: var(--gradient-pink);
+        transition-duration: var(--transition-duration-hover);
+        border-radius: var(--border-radius);
+        z-index: -1;
+      }
+      &:active::after {
+        width: 184px;
+        height: 78px;
+
+        @include desktop {
+          width: 113px;
+        }
+
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        height: 0;
+        width: 0;
+        background-color: var(--color-dark-blue);
+        transition-duration: var(--transition-duration-active);
+        border-radius: var(--border-radius);
+        z-index: -1;
+      }
+
+    }
   }
 
-  &__nav {
-    flex: 1 1 auto;
-  }
 
-  &__button {
-    flex-shrink: 0;
-  }
-
-  &__burger {
-    display: none;
-    flex-shrink: 0;
-  }
 }
 
 .logo {
@@ -43,75 +122,33 @@
   height: 80px;
   padding: 12px 24px;
 
+  @include mobile {
+    height: 49px;
+  }
+
+  @include desktop {
+    width: 113px;
+  }
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 999px;
 
   &__image {
-    width: 56px;
+
     height: 56px;
     display: block;
     object-fit: contain;
+    margin: 0 auto;
+
+    @include mobile {
+      height: 38px
+    }
+
   }
 }
 
-.nav {
-  &__list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
 
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__item {
-    display: flex;
-  }
-
-  &__link {
-    min-width: 160px;
-    min-height: 60px;
-    padding: 18px 28px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 999px;
-    text-decoration: none;
-
-    font-family: Montserrat, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1;
-    color: #f5f5f5;
-
-    transition:
-      background-color 0.25s ease,
-      background-image 0.25s ease,
-      color 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  &__link:hover {
-    background: linear-gradient(90deg, #8fc2ff 0%, #f0a7e8 100%);
-    color: #ffffff;
-  }
-
-  &__link--active {
-    background: linear-gradient(90deg, #4d22e8 0%, #3b10d8 100%);
-    color: #ffffff;
-  }
-
-  &__link--disabled {
-    background: #4b4b4b;
-    color: #d8d8d8;
-    pointer-events: none;
-  }
-}
