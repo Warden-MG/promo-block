@@ -1,0 +1,10 @@
+@use '../common/mixins' as *;
+@use '../common/media' as *;
+.section {
+  padding-block: var(--section-padding-y);
+
+  @include mobile {
+    padding-block: var(--mobile-section-padding-y);
+
+  }
+}
