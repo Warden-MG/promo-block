@@ -1,6 +1,3 @@
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
-
 new Swiper('.swiper', {
   slidesPerView: 1,
   spaceBetween: 20,
