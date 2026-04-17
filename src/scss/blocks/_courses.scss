@@ -2,12 +2,17 @@
 @use '../common/media' as *;
 
 .courses {
+  --course-card-width: clamp(200px, 42vw, 660px);
+  --course-card-offset: clamp(20px, 18vw, 251px);
+
   padding-block: 85px;
   display: flex;
   flex-direction: column;
   row-gap: 50px;
   background-image: url('../../assets/images/courses-bg.svg');
-  background-size: 100%;    // или contain / auto в зависимости от дизайна
+  background-size: 100%;
+  background-position: center;// или contain / auto в зависимости от дизайна
+  background-repeat: no-repeat;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -19,12 +24,12 @@
     left: 0;
     display: flex;
     flex-direction: column;
-    max-width: 660px;
+    width: min(100%, var(--course-card-width));
 
     min-height: 400px;
     padding: 74px 53px 55px 65px;
     border-radius: var(--border-radius);
-    transform: translateX(calc(var(--card-index) * 251px));
+    transform: translateX(calc(var(--card-index) * var(--course-card-offset)));
     z-index: calc(10 - var(--card-index));
     cursor: pointer;
     transition: transform 0.25s ease;
@@ -62,5 +67,39 @@
     min-height: 360px;
     width: 100%;
     max-width: 1415px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  &__bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-light-blue);
+    cursor: pointer;
+    transition-duration: var(--transition-duration);
+    opacity: 0.5;
+
+
+
+    &--active {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+
+  @include mobile {
+    --course-card-width: clamp(240px, 88vw, 560px);
+    --course-card-offset: clamp(24px, 10vw, 120px);
+
+    &__card {
+      min-height: 340px;
+      padding: 40px 30px;
+    }
   }
 }
