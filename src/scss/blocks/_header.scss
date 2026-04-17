@@ -1,26 +1,167 @@
 @use '../common/variables' as *;
 @use '../common/mixins' as *;
+@use '../common/media' as *;
 
 .header {
-  background: $color-white;
 
-  &__container {
-    @include container;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  z-index: 1100;          // ← хедер выше оверлея
+  padding-top: 33px;
+
+  font-size: 16px;
+  white-space: nowrap;
+
+  @include mobile {
+    padding-top: 15px;
   }
 
-  &__menu {
+  &__inner {
+    transition-duration: var(--transition-duration);
+    padding-right: 29px;
     display: flex;
-    gap: 20px;
-
-    &--active {
-      display: block;
-    }
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
 
     @include mobile {
-      display: none;
+      height: 50px;
+    }
+
+    border: 1px solid #fff;
+    border-radius: var(--border-radius);
+    background-color: var(--color-dark);
+  }
+
+
+  &__menu {
+    margin-right: auto;
+    padding-left: 148px;
+
+    @include desktop {
+      padding-left: 30px;
+
+    }
+
+    &-list {
+      display: flex;
+      column-gap: 71px;
+
+      @include desktop {
+        column-gap: 35px;
+      }
+      align-items: center;
+    }
+
+    &-link {
+
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+
+      border: var(--border-radius);
+
+      z-index: 0;
+
+      @include hover {
+        &::before {
+          height: 78px;
+          width: 184px;
+
+          @include desktop {
+            width: 113px;
+          }
+
+
+
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        height: 0;
+        width: 0;
+        background-image: var(--gradient-pink);
+        transition-duration: inherit;
+        border-radius: var(--border-radius);
+        z-index: -1;
+
+
+      }
+      &:active::after {
+        width: 184px;
+        height: 78px;
+
+        @include desktop {
+          width: 113px;
+        }
+
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        height: 0;
+        width: 0;
+        background-color: var(--color-dark-blue);
+        border-radius: var(--border-radius);
+        z-index: -1;
+      }
+
     }
   }
+  &__button {
+    height: var(--button-small-height);
+    width: 161px;
+
+    @include desktop {
+      width: 120px;
+    }
+  }
+
+
 }
+
+.logo {
+  width: 184px;
+  height: 80px;
+  padding: 12px 24px;
+
+  @include mobile {
+    height: 49px;
+  }
+
+  @include desktop {
+    width: 113px;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: var(--color-white);
+  border-radius: 999px;
+
+  &__image {
+
+    height: 56px;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+
+    @include mobile {
+      height: 38px
+    }
+
+  }
+}
+
+

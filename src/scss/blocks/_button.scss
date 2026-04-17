@@ -1,9 +1,40 @@
 @use '../common/variables' as *;
+@use '../common/mixins' as *;
+@use '../common/media' as *;
 
 .button {
-  display: inline-block;
-  padding: 10px 20px;
-  background: $color-main;
-  color: $color-white;
-  text-decoration: none;
+  @include flex-center(true);
+
+
+  background-image: var(--gradient-blue);
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  border: none;
+
+
+
+  @include hover {
+    background-image: var(--gradient-pink);
+    background-color: var(--color-dark-blue);
+
+    &:active {
+      background-image: none;
+
+    }
+  }
+
+  &--white {
+    color: var(--color-dark-blue);
+    background-image: none;
+
+    @include hover {
+      color: var(--color-white);
+      background-color: var(--color-light-blue);
+      background-image: none;
+
+      &:active {
+        background-color: var(--color-dark-blue);
+      }
+    }
+  }
 }

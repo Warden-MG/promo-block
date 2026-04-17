@@ -1,11 +1,16 @@
-@use './common/reset';
-@use './common/variables' as *;
-@use './common/mixins' as *;
+@use './common/normalize';
+@use './common/variables';
+@use './common/mixins';
 @use './common/global';
+@use './common/fonts';
+@use './common/media';
+@use './common/utils';
 
+@use './blocks/menu-overlay';
+@use './blocks/button';
 @use './blocks/header';
 @use './blocks/banner';
 @use './blocks/slogan';
 @use './blocks/courses';
 @use './blocks/burger';
-@use './blocks/button';
+@use './blocks/section';

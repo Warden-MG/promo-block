@@ -4,55 +4,182 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test Project</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 <body>
+  <header class="header menu-container">
+    <div class="header__inner">
+      <a class="header__logo logo" href="#">
+        <img class="logo__image" src="/src/assets/images/logo.svg" alt="Логотип" loading="lazy"/>
+      </a>
 
-<header class="header">
-  <div class="header__container">
-    <a href="#" class="header__logo">Logo</a>
+      <nav class="header__menu hidden-mobile">
+        <ul class="header__menu-list">
+          <li class="header__menu-item"><a class="header__menu-link" href="#">About us</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">Courses</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">Certificate</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">News</a></li>
+          <li class="header__menu-item"><a class="header__menu-link" href="#">Contact us</a></li>
+        </ul>
+      </nav>
 
-    <button class="header__burger burger" type="button">
-      <span></span>
-    </button>
+      <a class="header__button button button--blue hidden-mobile" href="#" type="button">Call us</a>
 
-    <nav class="header__menu">
-      <a href="#" class="header__link">Главная</a>
-      <a href="#" class="header__link">Курсы</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="banner">
-    <div class="banner__container">
-      <h1 class="banner__title">Заголовок</h1>
-      <p class="banner__text">Описание блока</p>
-      <a href="#" class="banner__button button">Подробнее</a>
+      <button class="header__burger-button burger-button visible-mobile" id="burgerButton" type="button" aria-label="Открыть меню">
+        <span class="visually-hidden">Open navigation menu</span>
+      </button>
     </div>
-  </section>
+  </header>
 
-  <section class="slogan">
-    <div class="slogan__container">
-      <h2 class="slogan__title">Наши преимущества</h2>
-    </div>
-  </section>
+  <main class="content container">
+    <section class="section">
+      <div class="section__body">
+        <div class="hero">
+          <div class="hero__main">
+            <div class="hero__body">
 
-  <section class="courses">
-    <div class="courses__container">
-      <h2 class="courses__title">Курсы</h2>
+              <h1 class="hero__title">
+                Start Your Career in IT Today
+              </h1>
 
-      <div class="courses__slider swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Курс 1</div>
-          <div class="swiper-slide">Курс 2</div>
-          <div class="swiper-slide">Курс 3</div>
+              <div class="hero__description">
+                <p>To make high-quality IT education accessible, helping people gain practical skills, grow professionally, and build successful careers in the technology industry.</p>
+              </div>
+
+              <div class="hero__button-container">
+                <button
+                        class="hero__button button"
+                        type="button"
+                >
+                  About more
+                </button>
+                <button
+                        class="hero__button button button--white"
+                        type="button"
+                >
+                  Choose a Course
+                </button>
+              </div>
+
+            </div>
+
+            <img
+                    class="hero__image"
+                    src="/src/assets/images/slogan-image.png"
+                    alt=""
+                    loading="lazy"
+            />
+          </div>
+
+          <div class="hero__mission">
+
+            <h2 class="hero__mission-title">
+              A team of experts — <br>
+              you can trust with your IT education
+
+            </h2>
+
+            <p class="hero__mission-subtitle">
+              Our Mission
+            </p>
+
+            <p class="hero__mission-description">
+              To make high-quality IT education accessible, helping people gain practical skills, grow professionally, and build successful careers in the technology industry.
+            </p>
+
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
 
-<script type="module" src="/src/js/main.js"></script>
+
+    </section>
+
+    <section class="section">
+
+      <div class="courses">
+        <div class="courses__header">
+          <h3 class="courses__title" id="courses-title">Courses</h3>
+          <p class="courses__link link">Read more</p>
+        </div>
+
+        <div class="courses__slider" data-course-slider>
+          <div class="courses__cards" data-course-wrapper>
+
+            <article class="courses__card courses__card--black courses__card--active" data-course-card data-course-index="0" style="--card-index: 0;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
+
+            <article class="courses__card courses__card--gray" data-course-card data-course-index="1" style="--card-index: 1;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
+
+            <article class="courses__card courses__card--white" data-course-card data-course-index="2" style="--card-index: 2;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
+
+            <article class="courses__card courses__card--blue" data-course-card data-course-index="3" style="--card-index: 3;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
+          </div>
+
+        <div class="courses__pagination" data-course-pagination></div>
+        </div>
+      </div>
+
+
+
+    </section>
+  </main>
+
+
+
+  <nav class="mobile-overlay visible-mobile" id="mobileOverlay">
+    <div class="mobile-overlay__menu">
+      <ul class="mobile-overlay__list">
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">About us</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Services</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Use Cases</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Pricing</a></li>
+        <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#">Blog</a></li>
+      </ul>
+
+      <div class="mobile-overlay__social">
+        <a class="mobile-overlay__logo " href="#">
+          <img class="logo__image" src="/src/assets/images/facebook-icon.svg" alt="Facebook" loading="lazy"/>
+        </a>
+        <a class="mobile-overlay__logo" href="#">
+          <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
+        </a>
+        <a class="mobile-overlay__logo" href="#">
+          <img class="logo__image" src="/src/assets/images/instagram-icon.svg" alt="Instagram" loading="lazy"/>
+        </a>
+      </div>
+
+      <div class="mobile-overlay__policy">
+        <a class="mobile-overlay__policy-link" href="#">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </nav>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script type="module" src="/src/js/menu.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/slider.js"></script>
 </body>
 </html>

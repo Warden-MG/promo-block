@@ -1,14 +1,73 @@
-@use './variables' as *;
-
+@use "./mixins" as *;
+@use "./media" as *;
 body {
-  font-family: Arial, sans-serif;
-  color: $color-dark;
+  @include fluid-text(22, 18);
+
+  font-family: var(--font-family-base), serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.28;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+main {
+  overflow: visible;
+  padding-top: 170px;
+
+  @include desktop {
+    padding-top: 145px;
+  }
+  @include mobile {
+    padding-top: 114px;
+  }
 }
 
-img {
-  max-width: 100%;
+a,
+button,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration-hover);
+  color: inherit;
 }
 
-button {
-  cursor: pointer;
+a {
+  text-decoration: none;
+
+}
+li {
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+h1 {
+  @include fluid-text(50, 30);
+  @include mobile {
+    font-weight: 400;
+  }
+
+}
+
+h2 {
+  @include fluid-text(40, 22);
+}
+
+h3 {
+  @include fluid-text(26, 24);
+}
+
+h4 {
+  @include fluid-text(232, 101);
+}
+
+p {
+  @include fluid-text(22, 18);
+  font-weight: 400;
+}
+.link {
+  @include hover {
+    color: var(--color-light-blue);
+  }
 }
