@@ -11,6 +11,7 @@ body {
   background-color: var(--color-dark);
 }
 main {
+  overflow: visible;
   padding-top: 170px;
 
   @include desktop {
@@ -57,7 +58,16 @@ h3 {
   @include fluid-text(26, 24);
 }
 
+h4 {
+  @include fluid-text(232, 101);
+}
+
 p {
   @include fluid-text(22, 18);
   font-weight: 400;
+}
+.link {
+  @include hover {
+    color: var(--color-light-blue);
+  }
 }

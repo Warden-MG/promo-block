@@ -34,4 +34,7 @@
     --transition-duration: 0.2s;
     --transition-duration-hover: 0.2s;
     --transition-duration-active: 0.05s;
+
+    --course-card-width: clamp(200px, 42vw, 660px);
+    --course-card-offset: clamp(10px, 16vw, 251px);
 }

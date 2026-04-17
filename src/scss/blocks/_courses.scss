@@ -1,7 +1,141 @@
 @use '../common/mixins' as *;
+@use '../common/media' as *;
 
 .courses {
-  padding: 60px 0;
+  padding-block: 85px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  background-image: url('../../assets/images/courses-bg.svg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include mobile {
+    background-size: cover;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__slider {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+
+  &__cards {
+    position: relative;
+    min-height: 420px;
+    width: 100%;
+    max-width: 1415px;
+  }
+
+  &__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: min(100%, var(--course-card-width));
+    min-height: 400px;
+    padding: 74px 53px 55px 65px;
+    border-radius: var(--border-radius);
+    transform: translateX(calc(var(--card-index) * var(--course-card-offset)));
+    z-index: calc(10 - var(--card-index));
+    cursor: pointer;
+    transition: transform 0.25s ease;
+
+    &--black {
+      background: var(--color-black);
+    }
+
+    &--gray {
+      background: var(--color-dark-gray);
+    }
+
+    &--white {
+      background: var(--color-white);
+      color: var(--color-black);
+    }
+
+    &--blue {
+      background: var(--color-light-blue);
+      color: var(--color-black);
+    }
+
+    &--active {
+      z-index: 20;
+    }
+
+    &-description {
+      margin-top: 41px;
+    }
+
+    &-link {
+      margin-top: auto;
+      margin-left: auto;
+      width: fit-content;
+      font-size: 18px;
+
+      @include mobile {
+
+      }
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  &__bullet {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-light-blue);
+    opacity: 0.45;
+    cursor: pointer;
+    transition: transform var(--transition-duration), opacity var(--transition-duration);
+
+    &--active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  @include mobile {
+    --course-card-width: 100%;
+
+    &__cards {
+      min-height: 0;
+      max-width: 100%;
+    }
+
+    &__card {
+      position: static;
+      width: 100%;
+      min-height: 300px;
+      padding: 34px 27px 27px 25px;
+      transform: none;
+      cursor: default;
+    }
 
 
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: var(--color-light-blue);
+      opacity: 0.45;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
 }
