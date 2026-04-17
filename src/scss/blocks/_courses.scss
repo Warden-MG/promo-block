@@ -1,7 +1,66 @@
 @use '../common/mixins' as *;
+@use '../common/media' as *;
 
 .courses {
-  padding: 60px 0;
+  padding-block: 85px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  background-image: url('../../assets/images/courses-bg.svg');
+  background-size: 100%;    // или contain / auto в зависимости от дизайна
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
 
+  &__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 660px;
 
+    min-height: 400px;
+    padding: 74px 53px 55px 65px;
+    border-radius: var(--border-radius);
+    transform: translateX(calc(var(--card-index) * 251px));
+    z-index: calc(10 - var(--card-index));
+    cursor: pointer;
+    transition: transform 0.25s ease;
+
+    &--black {
+      background: var(--color-black);
+    }
+
+    &--gray {
+      background: var(--color-dark-gray);
+    }
+    &--white {
+      background: var(--color-white);
+      color: var(--color-black);
+    }
+    &--blue {
+      background: var(--color-light-blue);
+      color: var(--color-black);
+    }
+    &--active {
+      z-index: 20;
+    }
+    &-description {
+      margin-top: 41px;
+    }
+    &-link {
+      margin-top: auto;
+      margin-left: auto;
+      width: fit-content;
+      font-size: 18px;
+    }
+  }
+  &__cards {
+    position: relative;
+    min-height: 360px;
+    width: 100%;
+    max-width: 1415px;
+  }
 }

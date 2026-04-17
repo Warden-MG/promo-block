@@ -1,6 +1,7 @@
 @use '../common/mixins' as *;
 @use '../common/media' as *;
 .section {
+  position: relative;
   padding-block: var(--section-padding-y);
 
   @include mobile {
