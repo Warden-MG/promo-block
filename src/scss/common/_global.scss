@@ -11,6 +11,7 @@ body {
   background-color: var(--color-dark);
 }
 main {
+  overflow: visible;
   padding-top: 170px;
 
   @include desktop {

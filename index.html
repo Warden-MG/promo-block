@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test Project</title>
   <link rel="icon" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 <body>
   <header class="header menu-container">
@@ -102,40 +103,43 @@
           <p class="courses__link link">Read more</p>
         </div>
 
-        <div class="courses__cards">
+        <div class="courses__slider" data-course-slider>
+          <div class="courses__cards" data-course-wrapper>
 
-          <article class="courses__card courses__card--black courses__card--active" data-course-card data-course-index="0" style="--card-index: 0;">
-            <h2 class="courses__card-title">C++ Developer course</h2>
-            <p class="courses__card-description">
-              In just 9 months, you'll master one of the most in-demand programming languages from scratch.
-            </p>
-            <a class="courses__card-link link" href="#">Read more</a>
-          </article>
+            <article class="courses__card courses__card--black courses__card--active" data-course-card data-course-index="0" style="--card-index: 0;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
 
-          <article class="courses__card courses__card--gray" data-course-card data-course-index="1" style="--card-index: 1;">
-            <h2 class="courses__card-title">C++ Developer course</h2>
-            <p class="courses__card-description">
-              In just 9 months, you'll master one of the most in-demand programming languages from scratch.
-            </p>
-            <a class="courses__card-link link" href="#">Read more</a>
-          </article>
+            <article class="courses__card courses__card--gray" data-course-card data-course-index="1" style="--card-index: 1;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
 
-          <article class="courses__card courses__card--white" data-course-card data-course-index="2" style="--card-index: 2;">
-            <h2 class="courses__card-title">C++ Developer course</h2>
-            <p class="courses__card-description">
-              In just 9 months, you'll master one of the most in-demand programming languages from scratch.
-            </p>
-            <a class="courses__card-link link" href="#">Read more</a>
-          </article>
+            <article class="courses__card courses__card--white" data-course-card data-course-index="2" style="--card-index: 2;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
 
-          <article class="courses__card courses__card--blue" data-course-card data-course-index="3" style="--card-index: 3;">
-            <h2 class="courses__card-title">C++ Developer course</h2>
-            <p class="courses__card-description">
-              In just 9 months, you'll master one of the most in-demand programming languages from scratch.
-            </p>
-            <a class="courses__card-link link" href="#">Read more</a>
-          </article>
+            <article class="courses__card courses__card--blue" data-course-card data-course-index="3" style="--card-index: 3;">
+              <h2 class="courses__card-title">C++ Developer course</h2>
+              <p class="courses__card-description">
+                In just 9 months, you'll master one of the most in-demand programming languages from scratch.
+              </p>
+              <a class="courses__card-link link" href="#">Read more</a>
+            </article>
+          </div>
 
+        <div class="courses__pagination" data-course-pagination></div>
         </div>
       </div>
 
@@ -173,7 +177,7 @@
       </div>
     </div>
   </nav>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   <script type="module" src="/src/js/menu.js"></script>
   <script type="module" src="/src/js/main.js"></script>
   <script type="module" src="/src/js/slider.js"></script>

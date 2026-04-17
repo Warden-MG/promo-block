@@ -1,41 +1,139 @@
-import '../scss/style.scss';
+const sliderElement = document.querySelector('[data-course-slider]');
+const cardsWrapperElement = document.querySelector('[data-course-wrapper]');
+const paginationElement = document.querySelector('[data-course-pagination]');
+const cardElements = Array.from(document.querySelectorAll('[data-course-card]'));
+const mobileBreakpoint = window.matchMedia('(max-width: 864px)');
 
-const courseCards = document.querySelectorAll('[data-course-card]');
-const pagination = document.querySelector('[data-course-pagination]');
+let swiperInstance = null;
 
-if (courseCards.length > 0 && pagination) {
-    const bulletClassName = 'courses__bullet';
-    const bulletActiveClassName = 'courses__bullet--active';
-    const cardActiveClassName = 'courses__card--active';
+const desktopBulletClassName = 'courses__bullet';
+const desktopBulletActiveClassName = 'courses__bullet--active';
+const cardActiveClassName = 'courses__card--active';
+const initialActiveIndex = Math.max(0, cardElements.findIndex((cardElement) => cardElement.classList.contains(cardActiveClassName)));
 
-    const bullets = Array.from(courseCards, (_, index) => {
-        const bullet = document.createElement('button');
-        bullet.type = 'button';
-        bullet.className = bulletClassName;
-        bullet.setAttribute('aria-label', `Показать слайд ${index + 1}`);
+const mobileSliderClasses = {
+    container: 'swiper',
+    wrapper: 'swiper-wrapper',
+    slide: 'swiper-slide',
+};
 
-        pagination.append(bullet);
+const restoreDesktopCardLayout = () => {
+    cardElements.forEach((cardElement, index) => {
+        cardElement.style.setProperty('--card-index', index);
+    });
+};
 
-        return bullet;
+const setDesktopActiveSlide = (slideIndex) => {
+    cardElements.forEach((cardElement, index) => {
+        cardElement.classList.toggle(cardActiveClassName, index === slideIndex);
     });
 
-    const setActiveSlide = (slideIndex) => {
-        courseCards.forEach((card, index) => {
-            card.classList.toggle(cardActiveClassName, index === slideIndex);
+    const desktopBullets = paginationElement.querySelectorAll(`.${desktopBulletClassName}`);
+
+    desktopBullets.forEach((bulletElement, index) => {
+        bulletElement.classList.toggle(desktopBulletActiveClassName, index === slideIndex);
+    });
+};
+
+const renderDesktopPagination = () => {
+    paginationElement.innerHTML = '';
+
+    cardElements.forEach((_, index) => {
+        const bulletElement = document.createElement('button');
+        bulletElement.type = 'button';
+        bulletElement.className = desktopBulletClassName;
+        bulletElement.setAttribute('aria-label', `Показать карточку ${index + 1}`);
+
+        bulletElement.addEventListener('click', () => {
+            if (swiperInstance) {
+                return;
+            }
+
+            setDesktopActiveSlide(index);
         });
 
-        bullets.forEach((bullet, index) => {
-            bullet.classList.toggle(bulletActiveClassName, index === slideIndex);
+        paginationElement.append(bulletElement);
+    });
+};
+
+const initializeDesktopControls = () => {
+    restoreDesktopCardLayout();
+    renderDesktopPagination();
+    setDesktopActiveSlide(initialActiveIndex);
+};
+
+const applyMobileClasses = () => {
+    sliderElement.classList.add(mobileSliderClasses.container);
+    cardsWrapperElement.classList.add(mobileSliderClasses.wrapper);
+
+    cardElements.forEach((cardElement) => {
+        cardElement.classList.add(mobileSliderClasses.slide);
+    });
+};
+
+const removeMobileClasses = () => {
+    sliderElement.classList.remove(mobileSliderClasses.container);
+    cardsWrapperElement.classList.remove(mobileSliderClasses.wrapper);
+
+    cardElements.forEach((cardElement) => {
+        cardElement.classList.remove(mobileSliderClasses.slide);
+    });
+};
+
+const enableMobileSlider = () => {
+    if (swiperInstance || !window.Swiper || !sliderElement || !cardsWrapperElement || !paginationElement) {
+        return;
+    }
+
+    paginationElement.innerHTML = '';
+    applyMobileClasses();
+
+    swiperInstance = new window.Swiper(sliderElement, {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        speed: 500,
+        pagination: {
+            el: paginationElement,
+            clickable: true,
+        },
+    });
+};
+
+const disableMobileSlider = () => {
+    if (swiperInstance) {
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+    }
+
+    removeMobileClasses();
+    initializeDesktopControls();
+};
+
+const handleBreakpointChange = (event) => {
+    if (event.matches) {
+        enableMobileSlider();
+        return;
+    }
+
+    disableMobileSlider();
+};
+
+if (sliderElement && cardsWrapperElement && paginationElement && cardElements.length > 0) {
+    cardElements.forEach((cardElement, index) => {
+        cardElement.addEventListener('click', () => {
+            if (swiperInstance) {
+                return;
+            }
+
+            setDesktopActiveSlide(index);
         });
-    };
-
-    courseCards.forEach((card, index) => {
-        card.addEventListener('click', () => setActiveSlide(index));
     });
 
-    bullets.forEach((bullet, index) => {
-        bullet.addEventListener('click', () => setActiveSlide(index));
-    });
+    if (mobileBreakpoint.matches) {
+        enableMobileSlider();
+    } else {
+        initializeDesktopControls();
+    }
 
-    setActiveSlide(Array.from(courseCards).findIndex((card) => card.classList.contains(cardActiveClassName)));
+    mobileBreakpoint.addEventListener('change', handleBreakpointChange);
 }
