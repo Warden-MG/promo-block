@@ -1,7 +1,44 @@
 @use '../common/mixins' as *;
+@use '../common/media' as *;
 
-.courses {
-  padding: 60px 0;
+.courses-slider {
+  &__slide {
+    border-radius: var(--border-radius);
 
 
+  }
+}
+
+.course-card {
+  &__description {
+    margin-top: 41px;
+  }
+  &__link {
+    margin-top: 49px;
+    float: right;
+    font-size: 18px;
+  }
+}
+
+.swiper-slide {
+  width: 660px;
+  padding: 74px 52px 55px 65px;
+  &--black {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  &--gray {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+  }
+
+  &--white {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+  &--blue {
+    background-color: var(--color-light-blue);
+    color: var(--color-black);
+  }
 }

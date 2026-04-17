@@ -3,6 +3,13 @@
 .section {
   padding-block: var(--section-padding-y);
 
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
   @include mobile {
     padding-block: var(--mobile-section-padding-y);
 
